@@ -1,10 +1,11 @@
 package Task4_Phone;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Network {
     //Создаем список для зарегистрированных абонентов
-    private static ArrayList phoneNumbers = new ArrayList();
+    private static List<String> phoneNumbers = new ArrayList<>();
 
     //Регистрация нового абонента в сети
     public static void registerNumber (String phoneNumber) {

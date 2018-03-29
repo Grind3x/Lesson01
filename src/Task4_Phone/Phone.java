@@ -5,6 +5,10 @@ public class Phone {
     private String phoneNumber;
     private boolean online;
 
+    public Phone() {
+
+    }
+
     public Phone(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -17,20 +21,28 @@ public class Phone {
     }
 
     //Вызов другого абонента
-    public void call(String phoneNumber){
+    public void call(String phoneNumber) {
 
         if (isOnline()) {
             //Попытка вызова номера абонента
-            if (Network.isConnected(phoneNumber)) System.out.println("Успешно. Вызов совершен!");
-            else System.out.println("Телефон абонента выключен или находится вне зоны действия сети!");
+            if (Network.isConnected(phoneNumber)) {
+                System.out.println("Успешно. Вызов совершен!");
+            } else {
+                System.out.println("Телефон абонента выключен или находится вне зоны действия сети!");
+            }
+        } else {
+                System.out.println("Ваш телефон не зарегистрирован в сети. Обратитесь в службу поддержки" +
+                    " вашего оператора.");
         }
-        else System.out.println("Ваш телефон не зарегистрирован в сети. Обратитесь в службу поддержки" +
-                " вашего оператора.");
 
     }
 
     private boolean isOnline() {
         return online;
+    }
+
+    public void incomingCall() {
+        System.out.println("Входящий вызов. Принять (Да/Нет)?");
     }
 
     @Override
